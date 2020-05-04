@@ -83,17 +83,28 @@ peer.on('call', call => {
     .then(stream => {
         call.answer(stream);
         playStream('localStream', stream);
-        call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+        call.on('stream', remoteStream => {
+            var order = 1;
+            let videoElement = `<video id="remoteStream${order}" width="300" controls></video>`
+            $('#test').append(videoElement);
+            playStream(`remoteStream${order}`, remoteStream);
+        });
     });
 });
 
+var idUser = [];
 $('#ulUser').on('click', 'li', function() {
     const id = $(this).attr('id');
     console.log(id);
+    idUser.push(id);
     openStream()
     .then(stream => {
         playStream('localStream', stream);
         const call = peer.call(id, stream);
-        call.on('stream', remoteStream => playStream('remoteStream', remoteStream));
+        call.on('stream', remoteStream => {
+            let videoElement = `<video id="remoteStream${id}" width="300" controls></video>`
+            $('#test').append(videoElement);
+            playStream(`remoteStream${id}`, remoteStream);
+        });
     });
 });
