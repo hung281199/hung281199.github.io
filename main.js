@@ -1,4 +1,4 @@
-const socket = io('https://mycoturn.herokuapp.com/');
+const socket = io('http://mycoturn.herokuapp.com/');
 
 $('#div-chat').hide();
 
@@ -41,10 +41,10 @@ function playStream(idVideoTag, stream) {
 
 
 const peer = new Peer({ 
-    key: 'peerjs',
-    host: '9000-a58987e9-c83e-4c94-9e37-83b823eaae3b.ws-us02.gitpod.io',
-    secure: true,
-    port: 443,
+    // key: 'peerjs',
+    // host: '9000-a58987e9-c83e-4c94-9e37-83b823eaae3b.ws-us02.gitpod.io',
+    // secure: true,
+    // port: 443,
     config: {
         'iceServers': [{
             'urls': 'stun:stun.services.mozilla.com'
