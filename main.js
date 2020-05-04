@@ -47,9 +47,7 @@ const peer = new Peer({
     // port: 443,
 
     key: 'lwjd5qra8257b9', 
-    port: 443, 
-    host: "0.peerjs.com", 
-    secure: true,
+
     config: {
         'iceServers': [{
             'urls': 'stun:stun.services.mozilla.com'
