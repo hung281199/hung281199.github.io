@@ -48,7 +48,7 @@ const peer = new Peer({
 
     key: 'lwjd5qra8257b9', 
     port: 443, 
-    host: "0.peerjs.com", 
+    host: "9000-a58987e9-c83e-4c94-9e37-83b823eaae3b.ws-us02.gitpod.io", 
     secure: true,
     config: {
         'iceServers': [{
