@@ -41,13 +41,17 @@ function playStream(idVideoTag, stream) {
 
 
 const peer = new Peer({ 
+    key: 'peerjs',
+    host: '9000-a58987e9-c83e-4c94-9e37-83b823eaae3b.ws-us02.gitpod.io',
+    sekure: true,
+    port: 443,
     config: {
         'iceServers': [{
             'urls': 'stun:stun.services.mozilla.com'
         }, {
             'urls': 'stun:stun.l.google.com:19302'
         }, {
-            'urls': 'turn:server-turn.fi.ai',
+            'urls': 'turn:turn-server.fi.ai:3478',
             'credential': '123',
             'username': 'hung'
         }]
