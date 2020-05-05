@@ -46,11 +46,13 @@ const peer = new Peer({
     secure: true,
     port: 443,
     config: {
-        'iceServers': [{
-            'urls': 'stun:stun.services.mozilla.com'
-        }, {
-            'urls': 'stun:stun.l.google.com:19302'
-        }, {
+        'iceServers': [
+        // {
+        //     'urls': 'stun:stun.services.mozilla.com'
+        // }, {
+        //     'urls': 'stun:stun.l.google.com:19302'
+        // }, 
+        {
             'urls': 'turn:turn-server.fi.ai:3478',
             'credential': '123',
             'username': 'hung'
@@ -98,9 +100,9 @@ $('#ulUser').on('click', 'li', function() {
     console.log(id);
     idUser.push(id);
     openStream()
-    .then(async stream => {
+    .then(stream => {
         playStream('localStream', stream);
-        const call = await peer.call(id, stream);
+        var call = peer.call(id, stream);
         call.on('stream', remoteStream => {
             let videoElement = `<video id="remoteStream${id}" width="300" controls></video>`
             $('#test').append(videoElement);
@@ -108,5 +110,3 @@ $('#ulUser').on('click', 'li', function() {
         });
     });
 });
-
-//eberghe
