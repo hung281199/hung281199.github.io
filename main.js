@@ -98,9 +98,9 @@ $('#ulUser').on('click', 'li', function() {
     console.log(id);
     idUser.push(id);
     openStream()
-    .then(stream => {
+    .then(async stream => {
         playStream('localStream', stream);
-        const call = peer.call(id, stream);
+        const call = await peer.call(id, stream);
         call.on('stream', remoteStream => {
             let videoElement = `<video id="remoteStream${id}" width="300" controls></video>`
             $('#test').append(videoElement);
